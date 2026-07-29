@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tim Sbrzesny – Softwareentwickler · Python & Odoo</title>
+<meta name="description" content="Tim Sbrzesny, Softwareentwickler aus der Region Lüneburg. Fokus: Python, Odoo-Schnittstellen, Workflow-Automatisierung. Open-Source-Projekte: Odoo Time Tracker (VS Code), crypto-tax-report.">
+<style>
+  :root{
+    --bg:#f6f8fb; --panel:#ffffff; --panel2:#eef2f8; --text:#1a2233; --muted:#5b6a82;
+    --accent:#0d9488; --accent2:#0369a1; --border:#dbe3ee; --chip:#e7edf6;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1420; --panel:#171e2e; --panel2:#1c2438; --text:#e8ecf4; --muted:#9aa7bd;
+      --accent:#5eead4; --accent2:#7dd3fc; --border:#2a3550; --chip:#212c45;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,'Segoe UI',sans-serif}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  nav{display:flex;justify-content:flex-end;padding:18px 0}
+  .lang-toggle{display:flex;border:1px solid var(--border);border-radius:99px;overflow:hidden}
+  .lang-toggle button{background:none;border:none;color:var(--muted);padding:6px 16px;
+    font:600 13px system-ui;cursor:pointer}
+  .lang-toggle button.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--bg)}
+  header{padding:40px 0 48px}
+  h1{font-size:clamp(30px,5.4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .meta{color:var(--muted);margin-top:6px;font-size:15px}
+  .intro{margin-top:18px;max-width:640px;font-size:17.5px}
+  .links{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 22px;border-radius:10px;text-decoration:none;
+    font-weight:600;font-size:14.5px}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--bg)}
+  .btn-ghost{color:var(--text);border:1px solid var(--border)}
+  .btn-ghost:hover{border-color:var(--accent)}
+  section{padding:26px 0}
+  h2{font-size:22px;margin-bottom:18px;letter-spacing:-.01em}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;
+    padding:26px;margin-bottom:18px}
+  .card h3{font-size:18px}
+  .card h3 a{color:var(--text);text-decoration:none}
+  .card h3 a:hover{color:var(--accent)}
+  .card .type{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.4px;
+    text-transform:uppercase}
+  .card p{color:var(--muted);margin-top:10px;font-size:15px}
+  .card .actions{margin-top:16px;display:flex;gap:16px;flex-wrap:wrap}
+  .card .actions a{color:var(--accent2);text-decoration:none;font-size:14px;font-weight:600}
+  .card .actions a:hover{text-decoration:underline}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{background:var(--chip);border:1px solid var(--border);border-radius:99px;
+    padding:7px 16px;font-size:14px;color:var(--text)}
+  code{font-family:var(--mono);font-size:13.5px;background:var(--panel2);
+    border:1px solid var(--border);border-radius:6px;padding:2px 8px}
+  footer{padding:44px 0 56px;color:var(--muted);font-size:14px;border-top:1px solid var(--border);
+    margin-top:34px}
+  footer a{color:var(--accent2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<nav>
+  <div class="lang-toggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" onclick="setLang('de')">DE</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<header>
+  <h1>Tim Sbrzesny<br><em data-i18n="role"></em></h1>
+  <p class="meta" data-i18n="meta"></p>
+  <p class="intro" data-i18n="intro"></p>
+  <div class="links">
+    <a class="btn btn-primary" href="https://github.com/TheRealRoyalTS">GitHub</a>
+    <a class="btn btn-ghost" href="https://de.linkedin.com/in/tim-sbrzesny-386342187">LinkedIn</a>
+  </div>
+</header>
+
+<section>
+  <h2 data-i18n="projects"></h2>
+
+  <div class="card">
+    <span class="type" data-i18n="p1type"></span>
+    <h3><a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">Odoo Time Tracker</a></h3>
+    <p data-i18n="p1desc"></p>
+    <div class="actions">
+      <a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">VS Code Marketplace →</a>
+      <a href="https://github.com/TheRealRoyalTS/odoo-time-tracker">GitHub →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="type" data-i18n="p2type"></span>
+    <h3><a href="https://github.com/TheRealRoyalTS/crypto-tax-report">crypto-tax-report</a></h3>
+    <p data-i18n="p2desc"></p>
+    <p><code>pip install krypto-steuerbericht</code></p>
+    <div class="actions">
+      <a href="https://therealroyalts.github.io/crypto-tax-report/" data-i18n="p2site"></a>
+      <a href="https://pypi.org/project/krypto-steuerbericht/">PyPI →</a>
+      <a href="https://github.com/TheRealRoyalTS/crypto-tax-report">GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-i18n="tech"></h2>
+  <div class="chips">
+    <span class="chip">Python</span>
+    <span class="chip" data-i18n="chipOdoo"></span>
+    <span class="chip">Windmill</span>
+    <span class="chip">XML</span>
+    <span class="chip">pandas · pytest</span>
+    <span class="chip">Git · GitHub Actions</span>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer"></span>
+  <a href="https://github.com/TheRealRoyalTS">GitHub</a> ·
+  <a href="https://de.linkedin.com/in/tim-sbrzesny-386342187">LinkedIn</a>
+</footer>
+
+</div>
+
+<script>
+const I18N = {
+  de: {
+    role: "Softwareentwickler",
+    meta: "Region Lüneburg · Python · Odoo · Automatisierung",
+    intro: "Softwareentwickler mit Fokus auf Python, Odoo-Schnittstellen und Workflow-Automatisierung mit Windmill und XML. Ausbildung 2024 abgeschlossen. Ich baue gern kleine, nützliche Tools – am liebsten Open Source.",
+    projects: "Projekte",
+    p1type: "VS Code Extension",
+    p1desc: "Odoo-Projekte und Tickets direkt in der VS-Code-Sidebar: Zeiterfassung per Timer in der Statusleiste, manuelles Buchen von Timesheets und ein automatisierter Git-Workflow – Feature-Branch nach Naming-Convention auschecken, Draft-PR erstellen und im Ticket verlinken. In vier Sprachen lokalisiert, im Marketplace veröffentlicht.",
+    p2type: "Open-Source-Tool · Python",
+    p2desc: "Krypto-Steuerreports für die deutsche Steuererklärung (Anlage SO): FIFO-Berechnung je Kauf-Tranche mit korrekter Jahresfrist, Adapter für Bitpanda- und Kraken-Exporte, vollständiger Prüfnachweis als Arbeitsmappe. Läuft komplett lokal – keine Cloud, kein Abo. Mit Testsuite und CI.",
+    p2site: "Website →",
+    tech: "Womit ich arbeite",
+    chipOdoo: "Odoo (External API / XML-RPC)",
+    footer: "Tim Sbrzesny · Region Lüneburg · ",
+  },
+  en: {
+    role: "Software Developer",
+    meta: "Lüneburg region, Germany · Python · Odoo · Automation",
+    intro: "Software developer focused on Python, Odoo integrations and workflow automation with Windmill and XML. Completed my apprenticeship in 2024. I enjoy building small, useful tools – preferably open source.",
+    projects: "Projects",
+    p1type: "VS Code Extension",
+    p1desc: "Odoo projects and tickets right in the VS Code sidebar: time tracking with a status-bar timer, manual timesheet entries, and an automated Git workflow – check out convention-compliant feature branches, create draft PRs and link them back to the ticket. Localized in four languages, published on the Marketplace.",
+    p2type: "Open-source tool · Python",
+    p2desc: "Crypto tax reports for the German tax return: FIFO calculation per purchase lot with a correct one-year holding period, adapters for Bitpanda and Kraken exports, and a complete audit workbook. Runs 100 % locally – no cloud, no subscription. With test suite and CI.",
+    p2site: "Website →",
+    tech: "What I work with",
+    chipOdoo: "Odoo (External API / XML-RPC)",
+    footer: "Tim Sbrzesny · Lüneburg region · ",
+  },
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (I18N[lang][key] !== undefined) { el.textContent = I18N[lang][key]; }
+  });
+  document.getElementById("btn-de").classList.toggle("active", lang === "de");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  try { localStorage.setItem("lang", lang); } catch (e) { /* z. B. Privatmodus */ }
+  document.title = lang === "de"
+    ? "Tim Sbrzesny – Softwareentwickler · Python & Odoo"
+    : "Tim Sbrzesny – Software Developer · Python & Odoo";
+}
+
+let saved = null;
+try { saved = localStorage.getItem("lang"); } catch (e) { /* ignorieren */ }
+setLang(saved || (navigator.language && navigator.language.startsWith("de") ? "de" : "en"));
+</script>
+
+</body>
+</html>
