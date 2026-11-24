@@ -5,102 +5,140 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tim Sbrzesny</title>
 <meta name="description" content="Tim Sbrzesny, Softwareentwickler aus der Region Lüneburg. Python, Odoo, Automatisierung. Projekte: clip-farming, Odoo Time Tracker, crypto-tax-report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fbfaf7; --text:#222; --muted:#6b6b6b; --link:#1d4ed8; --rule:#e2e0da; --code:#f0eee8;
+    --bg:#f3f0e8; --text:#1b1b1b; --muted:#6a665d; --accent:#d9481f; --rule:#1b1b1b; --soft:#e6e1d5;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#161616; --text:#e6e4df; --muted:#9a978f; --link:#8ab4f8; --rule:#2e2d2a; --code:#232220; }
+    :root{ --bg:#141412; --text:#ece8df; --muted:#9b968b; --accent:#ff7a4d; --rule:#ece8df; --soft:#26251f; }
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--text);
-    font:17px/1.6 Charter,'Iowan Old Style','Palatino Linotype',Georgia,serif}
-  main{max-width:640px;margin:0 auto;padding:48px 20px 64px}
-  a{color:var(--link);text-underline-offset:2px}
-  .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-  h1{font-size:28px;font-weight:700;margin:0}
-  #lang{font-size:15px;background:none;border:0;padding:0;color:var(--link);
-    text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-family:inherit}
-  .sub{color:var(--muted);margin:2px 0 0}
-  h2{font-size:15px;font-weight:700;margin:44px 0 0;padding-bottom:6px;border-bottom:1px solid var(--rule)}
-  .project{margin-top:26px}
-  h3{font-size:18px;margin:0}
-  .small{font-size:15px;color:var(--muted)}
-  p{margin:8px 0 0}
-  code{font:14px ui-monospace,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:3px}
-  footer{margin-top:48px;color:var(--muted);font-size:15px}
+    font:16.5px/1.6 'IBM Plex Sans',system-ui,sans-serif}
+  a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);
+    text-decoration-thickness:2px;text-underline-offset:3px}
+  a:hover{color:var(--accent)}
+  .page{max-width:1080px;margin:0 auto;padding:40px 20px 64px;
+    display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+  @media (min-width:860px){
+    .page{grid-template-columns:330px minmax(0,1fr);gap:72px;padding-top:72px}
+    aside{position:sticky;top:72px;align-self:start}
+  }
+  .mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+  h1{font-size:clamp(44px,8vw,64px);line-height:.95;font-weight:700;letter-spacing:-.03em;margin:14px 0 0}
+  h1 .dot{color:var(--accent)}
+  .sub{color:var(--muted);margin:14px 0 0}
+  .intro{margin:20px 0 0}
+  .contact{margin:24px 0 0;display:flex;gap:18px;flex-wrap:wrap}
+  #lang{margin-top:28px;background:none;border:1px solid var(--rule);color:var(--text);
+    padding:4px 10px;cursor:pointer}
+  #lang:hover{border-color:var(--accent);color:var(--accent)}
+  .head{display:flex;justify-content:space-between;border-bottom:2px solid var(--rule);padding-bottom:8px;color:var(--muted)}
+  article{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 12px;padding:28px 0;border-bottom:1px solid var(--soft)}
+  .num{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:7px}
+  h2{font-size:26px;letter-spacing:-.02em;margin:0;line-height:1.2}
+  h2 a{text-decoration:none}
+  h2 a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+  .meta{color:var(--muted);margin-top:4px}
+  article p{margin:12px 0 0;max-width:60ch}
+  pre{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--soft);
+    padding:12px 14px;margin:16px 0 0;overflow-x:auto;max-width:100%}
+  code{font-family:var(--mono);font-size:13.5px;background:var(--soft);padding:2px 6px}
+  .links{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  footer{margin-top:28px;color:var(--muted)}
 </style>
 </head>
 <body>
+<div class="page">
+
+<aside>
+  <div class="mono" style="color:var(--muted)">// Lüneburg, DE</div>
+  <h1>Tim<br>Sbrzesny<span class="dot">.</span></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="intro" data-i18n="intro"></p>
+  <div class="contact">
+    <a href="https://github.com/TheRealRoyalTS">GitHub</a>
+    <a href="https://de.linkedin.com/in/tim-sbrzesny-386342187">LinkedIn</a>
+  </div>
+  <button id="lang" class="mono" type="button"></button>
+</aside>
+
 <main>
+  <div class="head mono"><span data-i18n="projects"></span><span>2024–2026</span></div>
 
-<div class="top">
-  <h1>Tim Sbrzesny</h1>
-  <button id="lang" type="button"></button>
-</div>
-<p class="sub" data-i18n="sub"></p>
+  <article>
+    <div class="num">01</div>
+    <div>
+      <h2><a href="https://github.com/TheRealRoyalTS/clip-farming">clip-farming</a></h2>
+      <div class="meta mono">python · ffmpeg · streamlink</div>
+      <p data-i18n="clip"></p>
+<pre>twitch chat ──► detector ──► clipper ──► queue ──► publish
+                                ▲
+streamlink ─► ffmpeg ───────────┘  (~2 min buffer)</pre>
+      <div class="links mono"><a href="https://github.com/TheRealRoyalTS/clip-farming">github</a></div>
+    </div>
+  </article>
 
-<p data-i18n="intro"></p>
+  <article>
+    <div class="num">02</div>
+    <div>
+      <h2><a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">Odoo Time Tracker</a></h2>
+      <div class="meta mono" data-i18n="odooMeta"></div>
+      <p data-i18n="odoo"></p>
+      <div class="links mono">
+        <a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">marketplace</a>
+        <a href="https://github.com/TheRealRoyalTS/odoo-time-tracker">github</a>
+      </div>
+    </div>
+  </article>
 
-<h2 data-i18n="projects"></h2>
+  <article>
+    <div class="num">03</div>
+    <div>
+      <h2><a href="https://github.com/TheRealRoyalTS/crypto-tax-report">crypto-tax-report</a></h2>
+      <div class="meta mono">python · pandas</div>
+      <p data-i18n="crypto"></p>
+      <p><code>pip install krypto-steuerbericht</code></p>
+      <div class="links mono">
+        <a href="https://therealroyalts.github.io/crypto-tax-report/">website</a>
+        <a href="https://pypi.org/project/krypto-steuerbericht/">pypi</a>
+        <a href="https://github.com/TheRealRoyalTS/crypto-tax-report">github</a>
+      </div>
+    </div>
+  </article>
 
-<div class="project">
-  <h3><a href="https://github.com/TheRealRoyalTS/clip-farming">clip-farming</a></h3>
-  <div class="small">Python, ffmpeg · 2026</div>
-  <p data-i18n="clip"></p>
-  <p class="small"><a href="https://github.com/TheRealRoyalTS/clip-farming">GitHub</a></p>
-</div>
-
-<div class="project">
-  <h3><a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">Odoo Time Tracker</a></h3>
-  <div class="small" data-i18n="odooMeta"></div>
-  <p data-i18n="odoo"></p>
-  <p class="small">
-    <a href="https://marketplace.visualstudio.com/items?itemName=therealroyalts.odoo-time-tracker">Marketplace</a> ·
-    <a href="https://github.com/TheRealRoyalTS/odoo-time-tracker">GitHub</a>
-  </p>
-</div>
-
-<div class="project">
-  <h3><a href="https://github.com/TheRealRoyalTS/crypto-tax-report">crypto-tax-report</a></h3>
-  <div class="small">Python</div>
-  <p data-i18n="crypto"></p>
-  <p><code>pip install krypto-steuerbericht</code></p>
-  <p class="small">
-    <a href="https://therealroyalts.github.io/crypto-tax-report/">Website</a> ·
-    <a href="https://pypi.org/project/krypto-steuerbericht/">PyPI</a> ·
-    <a href="https://github.com/TheRealRoyalTS/crypto-tax-report">GitHub</a>
-  </p>
-</div>
-
-<footer>
-  <a href="https://github.com/TheRealRoyalTS">GitHub</a> ·
-  <a href="https://de.linkedin.com/in/tim-sbrzesny-386342187">LinkedIn</a>
-</footer>
-
+  <footer class="mono" data-i18n="footer"></footer>
 </main>
+
+</div>
 
 <script>
 const I18N = {
   de: {
-    sub: "Softwareentwickler, Region Lüneburg",
+    sub: "Softwareentwickler. Python, Odoo, Automatisierung.",
     intro: "Ich arbeite hauptsächlich mit Python und Odoo: Schnittstellen über die External API, Automatisierung mit Windmill und eine Menge XML. Meine Ausbildung habe ich 2024 abgeschlossen. Nebenbei schreibe ich Tools, die ich selbst brauche, und stelle sie auf GitHub.",
     projects: "Projekte",
     clip: "Schaut bei Twitch-Streams mit und merkt, wenn im Chat gerade etwas los ist. Den Moment schneidet es als Hochkant-Clip und legt ihn in eine Warteschlange, in der ich ihn freigebe oder verwerfe. Ein Ausschlag im Chat allein reicht nicht: Es müssen viele verschiedene Leute schreiben, oder viele dasselbe, oder der Stream wird plötzlich laut. Der Upload zu YouTube Shorts ist gebaut, lief aber noch nicht mit echten Videos.",
-    odooMeta: "VS-Code-Erweiterung, TypeScript",
+    odooMeta: "typescript · vs code extension",
     odoo: "Zeiterfassung für Odoo, ohne VS Code zu verlassen. Projekte und Tickets stehen in der Seitenleiste, die Zeit läuft als Timer in der Statusleiste. Zu einem Ticket legt die Erweiterung den Branch an, öffnet einen Draft-PR und verlinkt ihn im Ticket. Gibt es in vier Sprachen im Marketplace.",
     crypto: "Rechnet Krypto-Gewinne für die Anlage SO aus. Jeder Kauf wird einzeln nach FIFO verfolgt, mit eigener Jahresfrist. Es liest Exporte von Bitpanda und Kraken und schreibt eine Excel-Mappe, in der man jede Zahl nachrechnen kann. Läuft lokal, die Daten verlassen den Rechner nicht.",
-    other: "English",
+    footer: "Mehr auf GitHub.",
+    other: "→ english",
   },
   en: {
-    sub: "Software developer, Lüneburg area, Germany",
+    sub: "Software developer. Python, Odoo, automation.",
     intro: "I mostly work with Python and Odoo: integrations through the External API, automation with Windmill, and a fair amount of XML. I finished my apprenticeship in 2024. On the side I write tools I need myself and put them on GitHub.",
     projects: "Projects",
     clip: "Watches Twitch streams and notices when chat suddenly gets busy. It cuts that moment into a vertical clip and puts it in a queue where I approve or reject it. A spike in chat alone is not enough: it also needs many different people writing, many writing the same thing, or the stream getting loud. The YouTube Shorts upload is built but has not been used with real videos yet.",
-    odooMeta: "VS Code extension, TypeScript",
+    odooMeta: "typescript · vs code extension",
     odoo: "Odoo time tracking without leaving VS Code. Projects and tickets sit in the sidebar and the time runs as a timer in the status bar. For a ticket it creates the branch, opens a draft PR and links it back to the ticket. Available in four languages on the Marketplace.",
     crypto: "Works out crypto gains for the German tax return. Every purchase is tracked on its own with FIFO and its own one-year holding period. It reads Bitpanda and Kraken exports and writes an Excel workbook where every number can be checked by hand. Runs locally, the data never leaves your machine.",
-    other: "Deutsch",
+    footer: "More on GitHub.",
+    other: "→ deutsch",
   },
 };
 
